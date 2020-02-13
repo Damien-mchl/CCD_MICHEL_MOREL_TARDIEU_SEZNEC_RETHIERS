@@ -1,0 +1,15 @@
+Equipe EnerWin
+
+Damien Michel
+Lucas Seznec
+Erwin Morel
+Aurelien Rethiers
+Loïc Tardieu
+
+Nous pouvons se connecter avec le compte Cassandre et le mot de passe admin. 
+Ensuite, nous affichons le paning
+Nous avons aussi les fonction de back-end pour pouvois s'incrire sur un créneau avec un rôle. 
+
+url de notre site: https: //webetu.iutnc.univ-lorraine.fr/www/michel412u/CCD_MICHEL_MOREL_TARDIEU_SEZNEC_SRETHIERS/
+
+url github du projet: https://github.com/DamienL9/CCD_MICHEL_MOREL_TARDIEU_SEZNEC_RETHIERS
