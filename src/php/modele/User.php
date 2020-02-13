@@ -12,4 +12,9 @@ class User extends Model{
     protected $primaryKey = 'id';
 
     public $timestamps = false;
+
+    public function user_id()
+    {
+        return $this->hasMany('\modele\Besoin', 'idUser');
+    }
 }
