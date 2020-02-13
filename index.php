@@ -14,11 +14,11 @@ $db->addConnection(parse_ini_file("src/conf/conf.ini"));
 $db->setAsGlobal();
 $db->bootEloquent();
 $app->get("/liste_creneau", function() {
-    $creneauController= new CreneauController();
-    $creneauController->getListeCreneau();
+    $controllerPlaning= new ControllerPlanning();
+    $controllerPlaning->getListeCreneau();
 });
 
-$app->get("/liste_creneau/:idCreneau", function() use($app){
+$app->get("/liste_creneau/:idCreneau", function(){
     $creneauController= new CreneauController();
     $creneauController->getCreneau();
 });
