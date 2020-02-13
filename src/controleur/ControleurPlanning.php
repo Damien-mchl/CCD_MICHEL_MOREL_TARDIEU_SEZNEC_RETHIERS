@@ -1,10 +1,12 @@
 <?php
 
+namespace GEG\controleur;
+
 use Slim\Slim;
 use \GEG\modele\Creneau;
 use \GEG\modele\Besoin;
 use const GEG\vue\AFFICHER_PLANNING;
-namespace GEG\controleur;
+
 class ControleurPlanning{
 
     private $app;
@@ -53,5 +55,3 @@ class ControleurPlanning{
         }
     }
 }
-
-
