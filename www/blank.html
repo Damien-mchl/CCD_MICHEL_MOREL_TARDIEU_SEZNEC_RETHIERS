@@ -26,7 +26,7 @@
 <div id="wrapper">
 
   <!-- Sidebar -->
-  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -142,153 +142,670 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800">Créneaux</h1>
+        <div id="choixsemaineTop">
 
-        <div class="tableauaffichage">
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2" >
-                    <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Lundi</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <div class="mb-4">
-                        <div class=" border-left-primary shadow  py-2">
-                          <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                              <div style="text-align: center;font-size: 15px;"class="col mr-2" >
-                                <p>Creneau 20 à 21</p>
-                                <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-
-                                  <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
-                                </div>
-
-
-                                </div>
-
-                              </div>
-
-
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mb-4">
-                        <div class=" border-left-primary shadow  py-2">
-                          <div class="card-body">
-                            <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
-                              <div class="col mr-2" >
-                                <p>Creneau 11h à 12h</p>
-                                <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-
-                                  <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
-                                </div>
-
-
-                                </div>
-                                <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-
-                                  <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
-                                </div>
-
-
-                                </div>
-                              </div>
-                            </div>
-
-
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div>
-          Création créneaux <form id="creaCre" method="post" action="" enctype='multipart/form-data'>
-          <select name="jour">
-            <option value="lun">Lundi</option>
-            <option value="mar">Mardi</option>
-            <option value="mer">Mercredi</option>
-            <option value="jeu">Jeudi</option>
-            <option value="ven">Vendredi</option>
-            <option value="sam">Samedi</option>
-            <option value="dim">Dimanche</option>
-          </select>
           <select name="semaine">
+
             <option value="a">A</option>
             <option value="b">B</option>
             <option value="c">C</option>
             <option value="d">D</option>
           </select>
-          <input type="number" name="heureD" placeholder="Heure début">
-          <input type="number" name="heureF" placeholder="Heure fin">
-          <input type="submit">
-        </form>
-          </form>
+          <div style="text-align: left"><p>Choix de la Semaine</p></div>
+        </div>
+        <div id="madiv">
+          <div style="display:inline-flex" class="tableauaffichage">
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div  class="row no-gutters align-items-center">
+                    <div  class="col mr-2" >
+                      <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Lundi</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+
+                                <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                                  <p>Creneau 20h à 21h</p>
+
+
+
+
+                                  <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox" name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
+                                <div class="col mr-2" >
+                                  <p>Creneau 11h à 12h</p>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox"  name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!--Lundi-->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div  class="row no-gutters align-items-center">
+                    <div  class="col mr-2" >
+                      <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Mardi</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+
+                                <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                                  <p>Creneau 20h à 21h</p>
+
+
+
+
+                                  <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox" id="coding" name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
+                                <div class="col mr-2" >
+                                  <p>Creneau 11h à 12h</p>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox"  name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!--Mardi-->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div  class="row no-gutters align-items-center">
+                    <div  class="col mr-2" >
+                      <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Mercredi</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+
+                                <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                                  <p>Creneau 20h à 21h</p>
+
+
+
+
+                                  <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox" name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
+                                <div class="col mr-2" >
+                                  <p>Creneau 11h à 12h</p>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox"  name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!--Mercredi-->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div  class="row no-gutters align-items-center">
+                    <div  class="col mr-2" >
+                      <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jeudi</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+
+                                <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                                  <p>Creneau 20h à 21h</p>
+
+
+
+
+                                  <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox" name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
+                                <div class="col mr-2" >
+                                  <p>Creneau 11h à 12h</p>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox"  name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!--Jeudi-->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div  class="row no-gutters align-items-center">
+                    <div  class="col mr-2" >
+                      <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Vendredi</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+
+                                <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                                  <p>Creneau 20h à 21h</p>
+
+
+
+
+                                  <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox" name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
+                                <div class="col mr-2" >
+                                  <p>Creneau 11h à 12h</p>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox"  name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!--Vendredi-->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div  class="row no-gutters align-items-center">
+                    <div  class="col mr-2" >
+                      <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Samedi</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+
+                                <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                                  <p>Creneau 20h à 21h</p>
+
+
+
+
+                                  <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox" name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
+                                <div class="col mr-2" >
+                                  <p>Creneau 11h à 12h</p>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox"  name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!--Samedi-->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div  class="row no-gutters align-items-center">
+                    <div  class="col mr-2" >
+                      <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Dimanche</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+
+                                <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                                  <p>Creneau 20h à 21h</p>
+
+
+
+
+                                  <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox" name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-4">
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
+                                <div class="col mr-2" >
+                                  <p>Creneau 11h à 12h</p>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <div>
+                                      <input type="checkbox"  name="interest" value="coding" checked>
+                                      <label for="coding">Activer/Désactiver</label>
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                  <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                  </div>
+
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!--Dimanche-->
+
+
+          </div>
         </div>
 
+
+        <div>
+          <button class="accordion"> Création créneaux <form method="post" action="" enctype='multipart/form-data'></form></button>
+          <div class="panel">
+
+            <!--  Création créneaux <form id="creaCre" method="post" action="" enctype='multipart/form-data'></form>-->
+            <select name="jour">
+              <option value="lun">Lundi</option>
+              <option value="mar">Mardi</option>
+              <option value="mer">Mercredi</option>
+              <option value="jeu">Jeudi</option>
+              <option value="ven">Vendredi</option>
+              <option value="sam">Samedi</option>
+              <option value="dim">Dimanche</option>
+            </select>
+            <select name="semaine">
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
+              <option value="d">D</option>
+            </select>
+            <input type="number" name="heureD" placeholder="Heure début">
+            <input type="number" name="heureF" placeholder="Heure fin">
+            <input type="submit">
+          </div>
+          <div>
+            <button class="accordion"> Création Besoin <form  method="post" action="" enctype='multipart/form-data'></form></button>
+            <div class="panel">
+
+              <!--  Création créneaux <form id="creaCre" method="post" action="" enctype='multipart/form-data'></form>-->
+              <select name="jour">
+                <option value="lun">Lundi</option>
+                <option value="mar">Mardi</option>
+                <option value="mer">Mercredi</option>
+                <option value="jeu">Jeudi</option>
+                <option value="ven">Vendredi</option>
+                <option value="sam">Samedi</option>
+                <option value="dim">Dimanche</option>
+              </select>
+              <select name="semaine">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
+              </select>
+              <select name="choixCreneau">
+                <option value="1">Creneau 1</option>
+                <option value="2">Creneau 2</option>
+                <option value="3">Creneau 3</option>
+              </select>
+              <input type="submit">
+            </div>
+
+          </div>
+          <script>var acc = document.getElementsByClassName("accordion");
+          var i;
+
+          for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+              /* Toggle between adding and removing the "active" class,
+              to highlight the button that controls the panel */
+              this.classList.toggle("active");
+
+              /* Toggle between hiding and showing the active panel */
+              var panel = this.nextElementSibling;
+              if (panel.style.display === "block") {
+                panel.style.display = "none";
+              } else {
+                panel.style.display = "block";
+              }
+            });
+          } </script>
+        </div>
+        <!-- /.container-fluid -->
+
       </div>
-      <!-- /.container-fluid -->
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Enerwin 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
 
     </div>
-    <!-- End of Main Content -->
+    <!-- End of Content Wrapper -->
 
-    <!-- Footer -->
-    <footer class="sticky-footer">
-      <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-          <span>Copyright &copy; Enerwin 2020</span>
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
-    </footer>
-    <!-- End of Footer -->
-
-  </div>
-  <!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-  <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
-      </div>
     </div>
   </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.js"></script>
 </div>
-
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.js"></script>
-
 </body>
 
 </html>
