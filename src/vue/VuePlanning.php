@@ -45,10 +45,10 @@ class VuePlanning
         $creneaux = Creneau::where('semaine','=',$semaine)->where('jour','=',$jour)->orderBy('jour')->orderBy('heureDeb')->get();
         $html.=<<<END
         <div class="card border-left-primary shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2" >
-                <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">$jourL</div>
+                  <div class="card-body">
+                    <div  class="row no-gutters align-items-center">
+                      <div  class="col mr-2" >
+                        <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">$jourL</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">
 END;
         foreach ($creneaux as $c) {
@@ -57,10 +57,11 @@ END;
           $heureFin = $c['heureFin'];
           $html.=<<<END
           <div class="mb-4">
-            <div class=" border-left-primary shadow  py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                          <div class=" border-left-primary shadow  py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+
+                                <div style="text-align: center;font-size: 15px;"class="col mr-2" >
                     <p>De $heureDeb à $heureFin</p>
                     <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 END;
@@ -68,11 +69,12 @@ END;
                 $role = $b->role;
                 $label = $role['label'];
                 $html.=<<<END
-                        <div>
-                          <input type="checkbox" name="interest" value="coding" checked>
-                          <label for="coding">Activer/Désactiver</label>
-                        </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$label</div><div class="col-auto"></div>
+                <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <div>
+                              <input type="checkbox" name="interest" value="coding" checked>
+                              <label for="coding">Activer/Désactiver</label>
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$label</div><div class="col-auto"></div>
 END;
               }
               $html.=<<<END
@@ -112,71 +114,64 @@ END;
         $html = <<<END
 
         <!DOCTYPE html>
-        <html lang="en">
+<html lang="en">
 
-        <head>
+<head>
 
-          <meta charset="utf-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-          <meta name="description" content="">
-          <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-          <title>SB Admin 2 - Blank</title>
+  <title>SB Admin 2 - Blank</title>
 
-          <!-- Custom fonts for this template-->
-          <link href="$urlVendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-          <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="$urlVendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-          <!-- Custom styles for this template-->
-          <link href="$urlCSS/sb-admin-2.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="$urlCSS/sb-admin-2.css" rel="stylesheet">
 
-        </head>
+</head>
 
-        <body id="page-top">
+<body id="page-top">
 
-        <!-- Page Wrapper -->
-        <div id="wrapper">
+<!-- Page Wrapper -->
+<div id="wrapper">
 
-          <!-- Sidebar -->
-          <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+  <!-- Sidebar -->
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="$urlRacine">
-              <div class="sidebar-brand-icon">
-                <i class="fas fa-store" style="color: #ffe31a"></i>
-              </div>
-              <div class="sidebar-brand-text mx-3" style="color: #ffe31a">GEG<sup>  Nancy</sup></div>
-            </a>
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="$urlRacine">
+    <div class="sidebar-brand-icon">
+<i class="fas fa-store" style="color: #ffe31a"></i>
+</div>
+<div class="sidebar-brand-text mx-3" style="color: #ffe31a">GEG<sup>  Nancy</sup></div>
+</a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+<!-- Divider -->
+<hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-              <a class="nav-link" href="$urlRacine">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Tableau de bord</span></a>
-            </li>
+<!-- Nav Item - Dashboard -->
+<li class="nav-item">
+<a class="nav-link" href="$urlRacine">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Tableau de bord</span></a>
+    </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-              Planning
-            </div>
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Planning
+    </div>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-              <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Graphiques</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item active">
-              <a class="nav-link" href="$urlRacine"+"planning">
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+      <a class="nav-link" href="$urlRacine"+"planning">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Créneaux</span></a>
             </li>
@@ -252,6 +247,7 @@ END;
 
               <!-- Begin Page Content -->
               <div class="container-fluid">
+              <h1 class="h3 mb-4 text-gray-800">Créneaux</h1>
                 <div id="choixsemaineTop">
 
                   <select name="semaine">
@@ -263,15 +259,11 @@ END;
                   </select>
                   <div style="text-align: left"><p>Choix de la Semaine</p></div>
                 </div>
-                <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Créneaux</h1>
 
                 <div id="madiv">
-                  <div style="display:inline-flex" class="tableauaffichage">
-                    <div class="tableauaffichage">
-                      <div class="col-xl-3 col-md-6 mb-4">
+          <div style="display:inline-flex" class="tableauaffichage">
+            <div class="col-xl-3 col-md-6 mb-4">
                         $content
-                      </div>
                     </div>
                   </div>
                 </div>
