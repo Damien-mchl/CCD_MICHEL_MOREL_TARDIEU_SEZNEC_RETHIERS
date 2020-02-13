@@ -2,3 +2,4 @@
 .project/
 .htaccess
 composer.json
+conf.ini
