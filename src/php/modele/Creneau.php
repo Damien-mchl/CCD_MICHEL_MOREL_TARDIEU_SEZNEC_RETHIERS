@@ -12,4 +12,9 @@ class Creneau extends Model{
     protected $primaryKey = 'id';
 
     public $timestamps = false;
+
+    public function creneau_id()
+    {
+        return $this->hasMany('\modele\Besoin', 'idCreaneau');
+    }
 }

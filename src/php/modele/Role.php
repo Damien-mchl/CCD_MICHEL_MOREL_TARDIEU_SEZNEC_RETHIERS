@@ -12,4 +12,9 @@ class Role extends Model{
     protected $primaryKey = 'id';
 
     public $timestamps = false;
+
+    public function role_id()
+    {
+        return $this->hasMany('\modele\Besoin', 'idRole');
+    }
 }
