@@ -1,8 +1,9 @@
 <?php
 
-use \Slim\Slim;
+use Slim\Slim;
 use \GEG\modele\Creneau;
 use const GEG\vue\AFFICHER_PLANNING;
+namespace GEG\controleur;
 class ControleurPlanning{
 
     private $app;

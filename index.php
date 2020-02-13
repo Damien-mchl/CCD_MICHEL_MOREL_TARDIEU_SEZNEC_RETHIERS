@@ -4,6 +4,7 @@ session_start();
 require_once('vendor/autoload.php');
 
 use GEG\controleur\ControleurCompte;
+use GEG\controleur\ControleurPlanning;
 use \Slim\Slim;
 use \Illuminate\Database\Capsule\Manager as EloquentManager;
 

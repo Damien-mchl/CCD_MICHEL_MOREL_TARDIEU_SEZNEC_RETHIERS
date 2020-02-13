@@ -79,10 +79,10 @@ class VueCompte{
                             </div>
                             <form method="post" action="$content" enctype="multipart/form-data class="user">
                               <div class="form-group">
-                                <input type="login" class="form-control form-control-user" id="exampleInputLogin" aria-describedby="login" placeholder="Entrez votre login">
+                                <input type="text" name="login" class="form-control form-control-user" id="exampleInputLogin" aria-describedby="login" placeholder="Entrez votre login">
                               </div>
                               <div class="form-group">
-                                <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
+                                <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
                               </div>
 
 

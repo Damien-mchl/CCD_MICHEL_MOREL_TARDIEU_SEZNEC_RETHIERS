@@ -27,14 +27,14 @@ class ControleurCompte{
             $id=filter_var($_POST['login'],FILTER_SANITIZE_EMAIL);
             $password=filter_var($_POST['password'],FILTER_SANITIZE_STRING);
             $login=Compte::select("login")->where('login','=',"$id")->count();
-            if($login==1 and password_verify($mdp,Compte::select("$password")->where('login','=',"$id")->get()->toArray()[0]["password"])){
+            if($login==1 and password_verify($password,Compte::select("$password")->where('login','=',"$id")->get()->toArray()[0]["password"])){
                 $_SESSION['id_connect']=Compte::select("login")->where('login','=',"$id")->first()->login;
                 setcookie('nomUser',base64_encode($id),time()+60*60*24*30*12,'/');
-                $app->redirect($app->urlFor('planning'));
             } else {
                 $vue = new VueConnexion(['err'=>"Combinaison login / mot de passe incorrect"]);
                 $vue->render(INTERFACE_MAUVAISE_COMBINAISON);
             }
         }
+        $this->app->redirect($this->app->urlFor('afficherPlanning'));
     }
 }
