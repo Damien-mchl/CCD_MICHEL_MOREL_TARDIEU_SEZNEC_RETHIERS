@@ -2,7 +2,6 @@
 
 namespace GEG\modele;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model{
@@ -13,8 +12,7 @@ class User extends Model{
 
     public $timestamps = false;
 
-    public function user_id()
-    {
-        return $this->hasMany('\modele\Besoin', 'idUser');
+    public function besoins(){
+        return $this->hasMany('GEG\modele\Besoin', 'id');
     }
 }

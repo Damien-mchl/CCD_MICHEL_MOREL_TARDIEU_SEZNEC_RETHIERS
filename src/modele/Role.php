@@ -2,7 +2,6 @@
 
 namespace GEG\modele;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model{
@@ -13,8 +12,8 @@ class Role extends Model{
 
     public $timestamps = false;
 
-    public function role_id()
+    public function besoins()
     {
-        return $this->hasMany('\modele\Besoin', 'idRole');
+        return $this->hasMany('GEG\modele\Besoin', 'id');
     }
 }

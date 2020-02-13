@@ -2,7 +2,6 @@
 
 namespace GEG\modele;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Besoin extends Model{
@@ -13,18 +12,18 @@ class Besoin extends Model{
 
     public $timestamps = false;
 
-    public function role_id()
+    public function role()
     {
-        return $this->belongsTo('\modele\Role', 'idRole');
+        return $this->belongsTo('GEG\modele\Role', 'id');
     }
 
-    public function user_id()
+    public function user()
     {
-        return $this->belongsTo('\modele\User', 'idUser');
+        return $this->belongsTo('GEG\modele\User', 'id');
     }
 
-    public function creneau_id()
+    public function creneau()
     {
-        return $this->belongsTo('\modele\Creneau', 'idCreneau');
+        return $this->belongsTo('GEG\modele\Creneau', 'id');
     }
 }

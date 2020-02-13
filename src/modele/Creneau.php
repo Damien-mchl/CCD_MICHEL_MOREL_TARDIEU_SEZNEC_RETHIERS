@@ -2,7 +2,6 @@
 
 namespace GEG\modele;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Creneau extends Model{
@@ -15,6 +14,6 @@ class Creneau extends Model{
 
     public function besoins()
     {
-        return $this->hasMany('\modele\Besoin', 'idCreaneau');
+        return $this->hasMany('GEG\modele\Besoin', 'id');
     }
 }

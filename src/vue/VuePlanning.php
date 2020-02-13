@@ -42,7 +42,7 @@ class VuePlanning
                   break;
           }
 
-        $creneaux = Creneau::where('semaine','=',$semaine)->where('jour','=',$jour)->orderBy('jour')->orderBy('heureDeb');
+        $creneaux = Creneau::where('semaine','=',$semaine)->where('jour','=',$jour)->orderBy('jour')->orderBy('heureDeb')->get();
         $html.=<<<END
         <div class="card border-left-primary shadow h-100 py-2">
           <div class="card-body">
@@ -52,7 +52,7 @@ class VuePlanning
                 <div class="h5 mb-0 font-weight-bold text-gray-800">
 END;
         foreach ($creneaux as $c) {
-          $besoins = $c->besoins();
+          $besoins = $c->besoins()->get();
           $heureDeb = $c['heureDeb'];
           $heureFin = $c['heureFin'];
           $html.=<<<END
@@ -65,10 +65,14 @@ END;
                     <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 END;
               foreach ($besoins as $b) {
-                $role = $b->role_id()->get();
+                $role = $b->role;
                 $label = $role['label'];
                 $html.=<<<END
-                <div class="h5 mb-0 font-weight-bold text-gray-800">$label</div><div class="col-auto"></div>
+                        <div>
+                          <input type="checkbox" name="interest" value="coding" checked>
+                          <label for="coding">Activer/Désactiver</label>
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">$label</div><div class="col-auto"></div>
 END;
               }
               $html.=<<<END
@@ -248,13 +252,27 @@ END;
 
               <!-- Begin Page Content -->
               <div class="container-fluid">
+                <div id="choixsemaineTop">
 
+                  <select name="semaine">
+
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                    <option value="d">D</option>
+                  </select>
+                  <div style="text-align: left"><p>Choix de la Semaine</p></div>
+                </div>
                 <!-- Page Heading -->
                 <h1 class="h3 mb-4 text-gray-800">Créneaux</h1>
 
-                <div class="tableauaffichage">
-                  <div class="col-xl-3 col-md-6 mb-4">
-                    $content
+                <div id="madiv">
+                  <div style="display:inline-flex" class="tableauaffichage">
+                    <div class="tableauaffichage">
+                      <div class="col-xl-3 col-md-6 mb-4">
+                        $content
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -337,7 +355,7 @@ END;
 
         <!-- Custom scripts for all pages-->
         <script src="$urlJS/sb-admin-2.js"></script>
-
+        </div>
         </body>
 
         </html>
