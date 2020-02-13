@@ -4346,6 +4346,7 @@ input[type="button"].btn-block {
   padding: 1.25rem;
 }
 
+
 .card-title {
   margin-bottom: 0.75rem;
 }
@@ -9348,6 +9349,7 @@ button.bg-dark:focus {
 
 .font-weight-bold {
   font-weight: 700 !important;
+''
 }
 
 .font-weight-bolder {
@@ -9364,6 +9366,7 @@ button.bg-dark:focus {
 
 .text-primary {
   color: #4e73df !important;
+
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -9756,6 +9759,7 @@ a:focus {
 
 .text-xs {
   font-size: .7rem;
+
 }
 
 .text-lg {
