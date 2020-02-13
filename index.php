@@ -1,0 +1,32 @@
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+use \Slim\Slim;
+use \Illuminate\Database\Capsule\Manager as EloquentManager;
+
+$app = new Slim();
+
+$db = new EloquentManager();
+$db->addConnection(parse_ini_file("src/conf/conf.ini"));
+$db->setAsGlobal();
+$db->bootEloquent();
+
+$app->get("/liste_creneau", function() {
+    $creneauController= new CreneauController();
+    $creneauController->getListeCreneau();
+});
+
+$app->get("/liste_creneau/:idCreneau", function() use($app){
+    $creneauController= new CreneauController();
+    $creneauController->getCreneau();
+});
+
+$app->get("/liste_creneau/:idCreneau/ajoutBesoin", function() use($app){
+    $creneauController= new CreneauController();
+    $creneauController->getAttributionBesoinForm();
+});
+
+$app->post("/liste_creneau/:idCreneau/ajoutBesoin", function() use($app){
+    $creneauController= new CreneauController();
+    $creneauController->renderNewCrenau();
+});
