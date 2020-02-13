@@ -24,14 +24,9 @@ $app->get("/liste_creneau/:idCreneau", function(){
     $creneauController->getCreneau();
 });
 
-$app->get("/liste_creneau/:idCreneau/ajoutBesoin", function() use($app){
-    $creneauController= new CreneauController();
-    $creneauController->getAttributionBesoinForm();
-});
-
 $app->post("/liste_creneau/:idCreneau/ajoutBesoin", function() use($app){
     $creneauController= new CreneauController();
-    $creneauController->renderNewCrenau();
+    $creneauController->sinscrirCreneau();
 });
 
 $app->get('/',function () {
