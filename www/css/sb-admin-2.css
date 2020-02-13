@@ -10588,19 +10588,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("img/bg1.png");
+  background: url("../img/bg1.png");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("img/bg1.png");
+  background: url("../img/bg1.png");
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("img/bg1.png");
+  background: url("../img/bg1.png");
   background-position: center;
   background-size: cover;
 }
