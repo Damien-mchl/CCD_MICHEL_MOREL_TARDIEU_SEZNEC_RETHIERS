@@ -15,11 +15,11 @@ class ControleurCompte{
   }
 
   public function afficherInterfaceConnexion(){
-        if (!(isset($_SESSION['id_connect']) and $_SESSION['id_connect']!=null)) {
+        if (!(isset($_SESSION['id_connect']))) {
             $vue= new VueCompte(null);
             $vue->render(INTERFACE_CONNEXION);
         } else {
-            $this->app->redirect(Slim::getInstance()->request->getRootUri());
+            $this->app->redirect(Slim::getInstance()->urlFor('afficherPlanning'));
         }
     }
 

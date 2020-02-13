@@ -2,6 +2,7 @@
 
 namespace GEG\vue;
 const AFFICHER_PLANNING = 1;
+use GEG\modele\Creneau;
 use Slim\Slim;
 
 class VuePlanning
@@ -13,17 +14,93 @@ class VuePlanning
       $this->app = Slim::getInstance();
     }
 
-    public function afficherPlanning(){
+    public function afficherPlanning($semaine){
+      $html="";
+      for ($jour=1; $jour<=7 ; $jour++) {
+        $jourL = "";
+        switch ($jour) {
+              case 1 :
+                  $jourL = "Lundi";
+                  break;
+              case 2 :
+                  $jourL = "Mardi";
+                  break;
+              case 3 :
+                  $jourL = "Mercredi";
+                  break;
+              case 4 :
+                  $jourL = "Jeudi";
+                  break;
+              case 5 :
+                  $jourL = "Vendredi";
+                  break;
+              case 6 :
+                  $jourL = "Samedi";
+                  break;
+              case 7 :
+                  $jourL = "Dimanche";
+                  break;
+          }
 
+        $creneaux = Creneau::where('semaine','=',$semaine)->where('jour','=',$jour)->orderBy('jour')->orderBy('heureDeb');
+        $html.=<<<END
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2" >
+                <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">$jourL</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">
+END;
+        foreach ($creneaux as $c) {
+          $besoins = $c->besoins();
+          $heureDeb = $c['heureDeb'];
+          $heureFin = $c['heureFin'];
+          $html.=<<<END
+          <div class="mb-4">
+            <div class=" border-left-primary shadow  py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                    <p>De $heureDeb à $heureFin</p>
+                    <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+END;
+              foreach ($besoins as $b) {
+                $role = $b->role_id()->get();
+                $label = $role['label'];
+                $html.=<<<END
+                <div class="h5 mb-0 font-weight-bold text-gray-800">$label</div><div class="col-auto"></div>
+END;
+              }
+              $html.=<<<END
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+END;
+        }
+        $html.=<<<END
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+END;
+      }
+      return $html;
     }
 
     public function render($selecteur){
       $content = "";
       switch ($selecteur) {
             case AFFICHER_PLANNING :
-                $content = $this->afficherPlanning();
+                $content = $this->afficherPlanning('A');
                 break;
         }
+        $nom = $_SESSION['id_connect'];
+
         $urlRacine = $this->app->urlFor('racine');
         $urlCSS = $this->app->request->getRootURI() . '/www/css';
         $urlJS = $this->app->request->getRootURI() . '/www/js';
@@ -73,7 +150,7 @@ class VuePlanning
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="$urlRacine">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Tableau de bord</span></a>
             </li>
@@ -95,7 +172,7 @@ class VuePlanning
 
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
-              <a class="nav-link" href="blank.html">
+              <a class="nav-link" href="$urlRacine"+"planning">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Créneaux</span></a>
             </li>
@@ -139,7 +216,7 @@ class VuePlanning
                     <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="mr-2 d-none d-lg-inline" style="color: #858796">Valerie Luna</span>
+                      <span class="mr-2 d-none d-lg-inline" style="color: #858796">$nom</span>
                       <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                     </a>
                     <!-- Dropdown - User Information -->
@@ -177,67 +254,7 @@ class VuePlanning
 
                 <div class="tableauaffichage">
                   <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                      <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                          <div class="col mr-2" >
-                            <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Lundi</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                              <div class="mb-4">
-                                <div class=" border-left-primary shadow  py-2">
-                                  <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                      <div style="text-align: center;font-size: 15px;"class="col mr-2" >
-                                        <p>Creneau 20 à 21</p>
-                                        <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-
-                                          <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
-                                        </div>
-
-
-                                        </div>
-
-                                      </div>
-
-
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="mb-4">
-                                <div class=" border-left-primary shadow  py-2">
-                                  <div class="card-body">
-                                    <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
-                                      <div class="col mr-2" >
-                                        <p>Creneau 11h à 12h</p>
-                                        <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-
-                                          <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
-                                        </div>
-
-
-                                        </div>
-                                        <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-
-                                          <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
-                                        </div>
-
-
-                                        </div>
-                                      </div>
-                                    </div>
-
-
-                                  </div>
-                                </div>
-
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
+                    $content
                   </div>
                 </div>
 

@@ -13,7 +13,7 @@ class Creneau extends Model{
 
     public $timestamps = false;
 
-    public function creneau_id()
+    public function besoins()
     {
         return $this->hasMany('\modele\Besoin', 'idCreaneau');
     }
