@@ -4,6 +4,7 @@ session_start();
 require_once('vendor/autoload.php');
 
 use GEG\controleur\ControleurCompte;
+use GEG\controleur\ControleurPlanning;
 use \Slim\Slim;
 use \Illuminate\Database\Capsule\Manager as EloquentManager;
 
@@ -23,14 +24,9 @@ $app->get("/liste_creneau/:idCreneau", function(){
     $creneauController->getCreneau();
 });
 
-$app->get("/liste_creneau/:idCreneau/ajoutBesoin", function() use($app){
-    $creneauController= new CreneauController();
-    $creneauController->getAttributionBesoinForm();
-});
-
 $app->post("/liste_creneau/:idCreneau/ajoutBesoin", function() use($app){
     $creneauController= new CreneauController();
-    $creneauController->renderNewCrenau();
+    $creneauController->sinscrirCreneau();
 });
 
 $app->get('/',function () {

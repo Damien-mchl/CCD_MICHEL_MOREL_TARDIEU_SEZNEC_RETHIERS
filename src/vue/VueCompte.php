@@ -75,14 +75,14 @@ class VueCompte{
                         <div class="col-lg-6">
                           <div class="p-5">
                             <div class="text-center">
-                              <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                              <h1 class="h4 text-gray-900 mb-4">Connexion</h1>
                             </div>
                             <form method="post" action="$content" enctype="multipart/form-data class="user">
                               <div class="form-group">
-                                <input type="login" class="form-control form-control-user" id="exampleInputLogin" aria-describedby="login" placeholder="Entrez votre login">
+                                <input type="text" name="login" class="form-control form-control-user" id="exampleInputLogin" aria-describedby="login" placeholder="Entrez votre login">
                               </div>
                               <div class="form-group">
-                                <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
+                                <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
                               </div>
 
 
@@ -103,11 +103,11 @@ class VueCompte{
             </div>
 
             <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="vendorjs/jquery/jquery.min.js"></script>
+            <script src="vendorjs/bootstrap/js/bootstrap.bundle.min.js"></script>
 
             <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src="vendorjs/jquery-easing/jquery.easing.min.js"></script>
 
             <!-- Custom scripts for all pages-->
             <script src="$urlJS/sb-admin-2.js"></script>
