@@ -38,4 +38,9 @@ $app->get('/',function () {
     $c->afficherInterfaceConnexion();
 })->name('racine');
 
+$app->post('/', function () {
+    $c = new ControleurCompte();
+    $c->seConnecter();
+})->name('formCo');
+
 $app->run();
