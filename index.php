@@ -43,4 +43,9 @@ $app->post('/', function () {
     $c->seConnecter();
 })->name('formCo');
 
+$app->get('/planning', function () {
+    $c = new ControleurPlanning();
+    $c->afficherPlanning();
+})->name('afficherPlanning');
+
 $app->run();

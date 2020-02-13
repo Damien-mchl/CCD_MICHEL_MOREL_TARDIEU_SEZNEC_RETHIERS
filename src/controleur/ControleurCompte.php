@@ -30,7 +30,7 @@ class ControleurCompte{
             if($login==1 and password_verify($mdp,Compte::select("$password")->where('login','=',"$id")->get()->toArray()[0]["password"])){
                 $_SESSION['id_connect']=Compte::select("login")->where('login','=',"$id")->first()->login;
                 setcookie('nomUser',base64_encode($id),time()+60*60*24*30*12,'/');
-                $app->redirect($app->urlFor('racine'));
+                $app->redirect($app->urlFor('planning'));
             } else {
                 $vue = new VueConnexion(['err'=>"Combinaison login / mot de passe incorrect"]);
                 $vue->render(INTERFACE_MAUVAISE_COMBINAISON);
