@@ -6,6 +6,7 @@ use Slim\Slim;
 use \GEG\modele\Creneau;
 use \GEG\modele\Besoin;
 use const GEG\vue\AFFICHER_PLANNING;
+use GEG\vue\VuePlanning;
 
 class ControleurPlanning{
 

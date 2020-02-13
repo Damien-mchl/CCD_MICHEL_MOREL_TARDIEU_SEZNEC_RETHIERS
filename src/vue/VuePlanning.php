@@ -2,6 +2,7 @@
 
 namespace GEG\vue;
 const AFFICHER_PLANNING = 1;
+use Slim\Slim;
 
 class VuePlanning
 {
@@ -23,10 +24,10 @@ class VuePlanning
                 $content = $this->afficherPlanning();
                 break;
         }
-        $urlRacine = $app->urlFor('racine');
-        $urlCSS = $app->request->getRootURI() . '/www/css';
-        $urlJS = $app->request->getRootURI() . '/www/js';
-        $urlVendor = $app->request->getRootURI() . '/www/vendor';
+        $urlRacine = $this->app->urlFor('racine');
+        $urlCSS = $this->app->request->getRootURI() . '/www/css';
+        $urlJS = $this->app->request->getRootURI() . '/www/js';
+        $urlVendor = $this->app->request->getRootURI() . '/www/vendor';
         $html = <<<END
 
         <!DOCTYPE html>
@@ -40,14 +41,14 @@ class VuePlanning
           <meta name="description" content="">
           <meta name="author" content="">
 
-          <title>SB Admin 2 - Dashboard</title>
+          <title>SB Admin 2 - Blank</title>
 
           <!-- Custom fonts for this template-->
-          <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+          <link href="$urlVendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
           <!-- Custom styles for this template-->
-          <link href="css/sb-admin-2.css" rel="stylesheet">
+          <link href="$urlCSS/sb-admin-2.css" rel="stylesheet">
 
         </head>
 
@@ -60,18 +61,18 @@ class VuePlanning
           <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-              <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                  <i class="fas fa-store" style="color: #ffe31a"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3" style="color: #ffe31a">GEG<sup>  Nancy</sup></div>
-              </a>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="$urlRacine">
+              <div class="sidebar-brand-icon">
+                <i class="fas fa-store" style="color: #ffe31a"></i>
+              </div>
+              <div class="sidebar-brand-text mx-3" style="color: #ffe31a">GEG<sup>  Nancy</sup></div>
+            </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="index.html">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Tableau de bord</span></a>
@@ -93,7 +94,7 @@ class VuePlanning
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="blank.html">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Créneaux</span></a>
@@ -127,7 +128,15 @@ class VuePlanning
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-                  <!-- Nav Item - User Information -->
+                  <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                  <li class="nav-item dropdown no-arrow d-sm-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-search fa-fw"></i>
+                    </a>
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span class="mr-2 d-none d-lg-inline" style="color: #858796">Valerie Luna</span>
@@ -164,187 +173,158 @@ class VuePlanning
               <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                  <h1 class="h3 mb-0 text-gray-800">Tableau de bord</h1>
-                  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                </div>
+                <h1 class="h3 mb-4 text-gray-800">Créneaux</h1>
 
-                <!-- Content Row -->
-                <div class="row">
-
-                  <!-- Earnings (Monthly) Card Example -->
+                <div class="tableauaffichage">
                   <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                       <div class="card-body">
                         <div class="row no-gutters align-items-center">
                           <div class="col mr-2" >
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nombre d'heure dans le mois</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">6000 </div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                            <div  style="text-align: center;font-size: 20px;padding-bottom: 10px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">Lundi</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                              <div class="mb-4">
+                                <div class=" border-left-primary shadow  py-2">
+                                  <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                      <div style="text-align: center;font-size: 15px;"class="col mr-2" >
+                                        <p>Creneau 20 à 21</p>
+                                        <div  style="text-align: center;font-size: 12px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-success shadow h-100 py-2">
-                      <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                          <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Date Reserver dans le mois</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">12/12/2020 DE 11h à 12h</div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                                          <div class="h5 mb-0 font-weight-bold text-gray-800">taf1 </div><div class="col-auto">
+                                        </div>
 
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-info shadow h-100 py-2">
-                      <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                          <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nombre d'heure restant pour le mois a faire</div>
-                            <div class="row no-gutters align-items-center">
-                              <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                              </div>
-                              <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                  <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+
+                                        </div>
+
+                                      </div>
+
+
+                                    </div>
+                                  </div>
                                 </div>
+                              </div>
+                              <div class="mb-4">
+                                <div class=" border-left-primary shadow  py-2">
+                                  <div class="card-body">
+                                    <div style="text-align: center;font-size: 15px;"class="row no-gutters align-items-center">
+                                      <div class="col mr-2" >
+                                        <p>Creneau 11h à 12h</p>
+                                        <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                          <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                        </div>
+
+
+                                        </div>
+                                        <div  style="text-align: center;padding-bottom: 20px;"class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+
+                                          <div class="h5 mb-0 font-weight-bold text-gray-800">taf2 </div><div class="col-auto">
+                                        </div>
+
+
+                                        </div>
+                                      </div>
+                                    </div>
+
+
+                                  </div>
+                                </div>
+
                               </div>
                             </div>
                           </div>
-                          <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <!-- Pending Requests Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-warning shadow h-100 py-2">
-                      <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                          <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Nombre d'heure Total affectuer</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">1000000</div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
-                <!-- Content Row -->
-
-                <div class="row">
-
-                  <!-- Area Chart -->
-
-                  <!-- Pie Chart -->
-
-                  <!-- Content Row -->
-                  <div class="row">
-
-                    <!-- Content Column -->
-                    <div class="col-lg-6 mb-4">
-
-                      <!-- Project Card Example -->
-
-                      <!-- Color System -->
-
-                    </div>
-
-                    <div class="col-lg-6 mb-4">
-
-                      <!-- Illustrations -->
-
-                      <!-- Approach -->
-
-                    </div>
-                  </div>
-
+                <div>
+                  Création créneaux <form id="creaCre" method="post" action="" enctype='multipart/form-data'>
+                  <select name="jour">
+                    <option value="lun">Lundi</option>
+                    <option value="mar">Mardi</option>
+                    <option value="mer">Mercredi</option>
+                    <option value="jeu">Jeudi</option>
+                    <option value="ven">Vendredi</option>
+                    <option value="sam">Samedi</option>
+                    <option value="dim">Dimanche</option>
+                  </select>
+                  <select name="semaine">
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                    <option value="d">D</option>
+                  </select>
+                  <input type="number" name="heureD" placeholder="Heure début">
+                  <input type="number" name="heureF" placeholder="Heure fin">
+                  <input type="submit">
+                </form>
+                  </form>
                 </div>
-                <!-- /.container-fluid -->
 
               </div>
-              <!-- End of Main Content -->
-
-              <!-- Footer -->
-              <footer class="sticky-footer">
-                <div class="container my-auto">
-                  <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Enerwin 2020</span>
-                  </div>
-                </div>
-              </footer>
-              <!-- End of Footer -->
+              <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer">
+              <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                  <span>Copyright &copy; Enerwin 2020</span>
+                </div>
+              </div>
+            </footer>
+            <!-- End of Footer -->
 
           </div>
-          <!-- End of Page Wrapper -->
+          <!-- End of Content Wrapper -->
 
-          <!-- Scroll to Top Button-->
-          <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-          </a>
+        </div>
+        <!-- End of Page Wrapper -->
 
-          <!-- Logout Modal-->
-          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+          <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Bootstrap core JavaScript-->
-          <script src="vendor/jquery/jquery.min.js"></script>
-          <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="$urlVendor/jquery/jquery.min.js"></script>
+        <script src="$urlVendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-          <!-- Core plugin JavaScript-->
-          <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="$urlVendor/jquery-easing/jquery.easing.min.js"></script>
 
-          <!-- Custom scripts for all pages-->
-          <script src="js/sb-admin-2.js"></script>
-
-          <!-- Page level plugins -->
-          <script src="vendor/chart.js/Chart.min.js"></script>
-
-          <!-- Page level custom scripts -->
-          <script src="js/demo/chart-area-demo.js"></script>
-          <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="$urlJS/sb-admin-2.js"></script>
 
         </body>
 
         </html>
+
 
 
 END;
