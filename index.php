@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+session_start();
 
+require_once('vendor/autoload.php');
+
+use GEG\controleur\ControleurCompte;
 use \Slim\Slim;
 use \Illuminate\Database\Capsule\Manager as EloquentManager;
 
@@ -34,3 +37,10 @@ $app->get('/',function () {
     $c = new ControleurCompte();
     $c->afficherInterfaceConnexion();
 })->name('racine');
+
+$app->post('/', function () {
+    $c = new ControleurCompte();
+    $c->seConnecter();
+})->name('formCo');
+
+$app->run();
