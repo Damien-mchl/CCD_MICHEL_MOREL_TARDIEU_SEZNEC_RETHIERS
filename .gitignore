@@ -1,5 +1,6 @@
 .idea/
 .project/
 .htaccess
-composer.json
+composer.*
 conf.ini
+vendor/
