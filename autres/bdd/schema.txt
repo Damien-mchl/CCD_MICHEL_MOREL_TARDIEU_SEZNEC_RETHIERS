@@ -1,0 +1,7 @@
+role(id,label)
+user(id,login,password,nom,prenom,mail,tel,photo,obligationPerm,nbAbscences,acces)
+creneau(id,jour,semaine,heureDeb,heureFin,actif)
+besoin(id,#idRole,#idCreneau,#idUser,recurent)
+
+
+
