@@ -4,6 +4,7 @@ session_start();
 require_once('vendor/autoload.php');
 
 use GEG\controleur\ControleurCompte;
+use GEG\controleur\ControleurPlanning;
 use \Slim\Slim;
 use \Illuminate\Database\Capsule\Manager as EloquentManager;
 
@@ -37,5 +38,10 @@ $app->post('/', function () {
     $c = new ControleurCompte();
     $c->seConnecter();
 })->name('formCo');
+
+$app->get('/planning', function () {
+    $c = new ControleurPlanning();
+    $c->afficherPlanning();
+})->name('afficherPlanning');
 
 $app->run();
