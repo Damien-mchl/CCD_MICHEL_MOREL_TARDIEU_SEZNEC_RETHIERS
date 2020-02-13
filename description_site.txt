@@ -1,0 +1,5 @@
+Equipe EnerWin
+
+Nous pouvons se connecter avec le compte Cassandre et le mot de passe admin. 
+Ensuite, nous affichons le paning
+Nous avons aussi les fonction de back-end pour pouvois s'incrire sur un créneau avec un rôle. 
