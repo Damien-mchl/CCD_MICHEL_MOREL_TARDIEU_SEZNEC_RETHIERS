@@ -10,7 +10,6 @@ $db = new EloquentManager();
 $db->addConnection(parse_ini_file("src/conf/conf.ini"));
 $db->setAsGlobal();
 $db->bootEloquent();
-
 $app->get("/liste_creneau", function() {
     $creneauController= new CreneauController();
     $creneauController->getListeCreneau();
@@ -30,3 +29,8 @@ $app->post("/liste_creneau/:idCreneau/ajoutBesoin", function() use($app){
     $creneauController= new CreneauController();
     $creneauController->renderNewCrenau();
 });
+
+$app->get('/',function () {
+    $c = new ControleurCompte();
+    $c->afficherInterfaceConnexion();
+})->name('racine');
